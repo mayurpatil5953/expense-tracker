@@ -8,8 +8,8 @@ import "./Expenses.css";
 const Expenses = (props) => {
   return (
     <div>
-      <ExpensesFilter />
       <Card className="expenses">
+        <ExpensesFilter />
         <ExpenseItem
           title={props.expensesData[0].title}
           amount={props.expensesData[0].amount}
