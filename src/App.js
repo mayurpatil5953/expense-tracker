@@ -1,8 +1,8 @@
-// import NewExpenseItem from "./componets/NewExpenseItem";
-import NewExpenseItem from "./componets/NewExpenseItem";
+import Expenses from "./componets/Expenses/Expenses";
+import NewExpense from "./componets/NewExpense/NewExpense";
 
 function App() {
-  const newExpensesData = [
+  const ExpensesData = [
     {
       id: "e1",
       title: "Milk",
@@ -29,29 +29,16 @@ function App() {
     },
   ];
 
+  const addExpenseHandler = (expense) => {
+    console.log("In App.js");
+    console.log(expense);
+    ExpensesData.push(expense); 
+  };
+
   return (
     <div>
-      <h2>Let's get started!</h2>
-      <NewExpenseItem
-        title={newExpensesData[0].title}
-        amount={newExpensesData[0].amount}
-        date={newExpensesData[0].date}
-      ></NewExpenseItem>
-      <NewExpenseItem
-        title={newExpensesData[1].title}
-        amount={newExpensesData[1].amount}
-        date={newExpensesData[1].date}
-      ></NewExpenseItem>
-      <NewExpenseItem
-        title={newExpensesData[2].title}
-        amount={newExpensesData[2].amount}
-        date={newExpensesData[2].date}
-      ></NewExpenseItem>
-      <NewExpenseItem
-        title={newExpensesData[3].title}
-        amount={newExpensesData[3].amount}
-        date={newExpensesData[3].date}
-      ></NewExpenseItem>
+      <NewExpense onAddExpense={addExpenseHandler} />
+      <Expenses expensesData={ExpensesData} />
     </div>
   );
 }
